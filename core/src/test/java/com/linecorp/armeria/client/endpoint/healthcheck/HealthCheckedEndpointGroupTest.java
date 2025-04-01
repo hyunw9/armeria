@@ -561,7 +561,7 @@ class HealthCheckedEndpointGroupTest {
                                                     ClientOptions.of(), checkFactory,
                                                     HealthCheckStrategy.all(),
                                                     DEFAULT_ENDPOINT_PREDICATE)) {
-            endpointGroup.addListener(endpointsListener, true);
+            endpointGroup.addListener(endpointsListener, false);
             await().untilAsserted(() -> assertThat(updateInvokedCounter).hasValue(1));
             // the counter should stay 1 after 1 second has passed
             await().pollDelay(1, TimeUnit.SECONDS)
